@@ -5,7 +5,6 @@ import connectDB from "./config/db.js";
 connectDB()
   .then(() => {
     console.log("Database connected successfully.");
-    // Start the server only after successful DB connection
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {
       console.log(`Server is running on http://localhost:${PORT}`);
