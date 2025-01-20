@@ -4,8 +4,8 @@ import morgan from "morgan";
 
 import authRoutes from "./routes/auth-route.js"; // Authentication routes
 import movieRoutes from "./routes/movie-route.js"; // Movie routes
-// import reportRoutes from "./routes/reportRoutes"; // Report routes
-// import { errorHandler, notFoundHandler } from "./middlewares/errorMiddleware"; // Error handlers
+import reportRoutes from "./routes/report-route.js"; // Report routes
+import { errorHandler, notFoundHandler } from "./middleware/error-middleware.js"; // Error handlers
 
 const app = express();
 
@@ -17,12 +17,12 @@ app.use(express.json());
 // Routes
 app.use("/api/auth", authRoutes); // Authentication routes
 app.use("/api/movies", movieRoutes); // Movie routes
-// app.use("/api/reports", reportRoutes); // Report routes
+app.use("/api/reports", reportRoutes); // Report routes
 
-// // 404 Not Found Handler
-// app.use(notFoundHandler);
+// 404 Not Found Handler
+app.use(notFoundHandler);
 
-// // Global Error Handler
-// app.use(errorHandler);
+// Global Error Handler
+app.use(errorHandler);
 
 export default app;

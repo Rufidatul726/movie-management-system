@@ -12,7 +12,7 @@ const movieSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: "User", required: true },
     rating: { type: Number, min: 1, max: 5 },
   }],
-  avgRating: { type: Number, default: 0 },
+  avgRating: { type: Number, default: 0 }
 });
 
 movieSchema.methods.calculateAvgRating = function () {
